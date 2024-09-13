@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHANTOM Reward App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Home Screen -->
+    <section id="home-screen" class="screen">
+      <div class="header">
+        <img src="phantomlogo.png" alt="Cat Logo" class="phantomlogo">
+        <h1>0 PHANTOM</h1>
+        <button id="connect-wallet" class="btn">Connect</button>
+      </div>
+      <div class="tasks">
+        <h2>Tasks</h2>
+        <div class="task">
+          <p>Make a TON transaction</p>
+          <span>+2000 P</span>
+          <button class="btn">Open</button>
+        </div>
+        <div class="task">
+          <p>Join Telegram community</p>
+          <span>+100 P</span>
+          <button class="btn">Open</button>
+        </div>
+        <div class="task">
+          <p>Follow us on X</p>
+          <span>+50 P</span>
+          <button class="btn">Open</button>
+        </div>
+        <div class="task">
+          <p>Subscribe YouTube</p>
+          <span>+50 P</span>
+          <button class="btn">Open</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Invite Friends Screen -->
+    <section id="invite-screen" class="screen hidden">
+      <h1>Invite frens and get more PHANTOM</h1>
+      <img src="phantomlogo.png" alt="Invite Friends" class="phantomlogo"><br>
+      <button class="btn">Invite frens</button>
+    </section>
+
+    <!-- Leaderboard Screen -->
+    <section id="leaderboard-screen" class="screen hidden">
+      <h1>Telegram Wall of Fame</h1>
+      <p class="top-holders">5,546 holders (Top 10)</p>
+      <div class="leaderboard">
+        <div class="leaderboard-item">
+          <span>#1</span> AbuMen <span>17,181 P</span>
+        </div>
+        <div class="leaderboard-item">
+          <span>#2</span> YarAdua <span>5,176 P</span>
+        </div>
+        <div class="leaderboard-item">
+          <span>#3</span> Umaru <span>3,243 P</span>
+        </div>
+        <div class="leaderboard-item">
+            <span>#4</span>LEGEND <span>1,181 P</span>
+          </div>
+          <div class="leaderboard-item">
+            <span>#5</span> MSack <span>1,176 P</span>
+          </div>
+          <div class="leaderboard-item">
+            <span>#6</span> Mustapha Dambo <span>1,043 P</span>
+          </div>  <div class="leaderboard-item">
+            <span>#7</span> Kevin_DDR <span>1,001 P</span>
+          </div>
+          <div class="leaderboard-item">
+            <span>#8</span> Crypto001 <span>576 P</span>
+          </div>
+          <div class="leaderboard-item">
+            <span>#9</span> Doom <span>243 P</span>
+          </div>
+          <div class="leaderboard-item">
+            <span>#10</span> Zhen <span>203 P</span>
+          </div>
+        <!-- Add more leaderboard items as needed -->
+      </div>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+      <button id="home-tab" class="nav-btn active">Home</button>
+      <button id="leaderboard-tab" class="nav-btn">Leaderboard</button>
+      <button id="friends-tab" class="nav-btn">Friends</button>
+    </nav>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
