@@ -1,9 +1,9 @@
-// Sample task data
+// Sample task data with completion status
 const tasks = [
-  { id: 1, description: "Make a TON transaction", reward: 2000 },
-  { id: 2, description: "Join Telegram community", reward: 100 },
-  { id: 3, description: "Follow us on X", reward: 50 },
-  { id: 4, description: "Subscribe YouTube", reward: 50 }
+  { id: 1, description: "Follow Phantom CEO", reward: 2000, completed: false },
+  { id: 2, description: "Join Telegram community", reward: 100, completed: false },
+  { id: 3, description: "Follow us on X", reward: 50, completed: false },
+  { id: 4, description: "Subscribe YouTube", reward: 50, completed: false }
 ];
 
 // Placeholder for Phantom token balance
@@ -20,7 +20,7 @@ function renderTasks() {
     taskElement.innerHTML = `
       <p>${task.description}</p>
       <span>+${task.reward} P</span>
-      <button class="btn" onclick="completeTask(${task.id})">Open</button>
+      <button class="btn" id="task-btn-${task.id}" onclick="completeTask(${task.id})">${task.completed ? 'Complete' : 'Start'}</button>
     `;
     taskListElement.appendChild(taskElement);
   });
@@ -29,10 +29,15 @@ function renderTasks() {
 // Function to complete a task and update balance
 function completeTask(taskId) {
   const task = tasks.find(t => t.id === taskId);
-  if (task) {
+  if (task && !task.completed) {
     phantomBalance += task.reward;
     document.getElementById('phantom-balance').innerText = `${phantomBalance} PHANTOM`;
-    alert(`Task completed! You've earned ${task.reward} Phantom tokens.`);
+    task.completed = true;
+
+    // Change button text to "Complete"
+    const taskButton = document.getElementById(`task-btn-${taskId}`);
+    taskButton.innerText = 'Complete';
+    taskButton.classList.add('completed-btn');
   }
 }
 
@@ -71,10 +76,9 @@ function setActiveTab(tabId) {
   document.getElementById(tabId).classList.add('active');
 }
 
-// Dummy wallet connection
+// Dummy wallet connection without alert
 document.getElementById('connect-wallet').addEventListener('click', function() {
-  alert('Connecting wallet...');
-  // Implement real wallet connection logic here (e.g., using Web3.js)
+  document.getElementById('connect-wallet').innerText = 'Connected';
 });
 
 // Sample leaderboard data
@@ -108,8 +112,8 @@ function loadLeaderboard() {
 
 // Invitation handler (placeholder)
 document.getElementById('invite-btn').addEventListener('click', function() {
-  alert('Invite your friends via the referral system!');
   // Implement referral system logic here
+  alert('Invite your friends via the referral system!');
 });
 
 // Initial render
