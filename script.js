@@ -1,5 +1,3 @@
-
-
 // List of task URLs for each task
 const taskUrls = [
   'https://ton.org/',  // URL for "Make a TON transaction"
@@ -17,7 +15,7 @@ window.addEventListener('load', function () {
 // Task buttons functionality
 document.querySelectorAll('.task button').forEach((button, index) => {
   button.addEventListener('click', function () {
-      const taskId = `task-${index}`;
+      const taskId = task-${index};
       if (!localStorage.getItem(taskId)) {
           // Open the task URL in a new tab
           window.open(taskUrls[index], '_blank');  // Opens the link in a new tab
@@ -39,7 +37,7 @@ function completeTask(button, taskId) {
   localStorage.setItem('phantomTokens', totalTokens);
 
   // Update the total token balance in UI
-  document.getElementById('phantom-balance').textContent = `${totalTokens} PHANTOM`;
+  document.getElementById('phantom-balance').textContent = ${totalTokens} PHANTOM;
 
   // Mark the task as completed in localStorage
   localStorage.setItem(taskId, 'completed');
@@ -49,11 +47,11 @@ function completeTask(button, taskId) {
 function loadUserData() {
   // Load and update total tokens
   const totalTokens = localStorage.getItem('phantomTokens') || '0';
-  document.getElementById('phantom-balance').textContent = `${totalTokens} PHANTOM`;
+  document.getElementById('phantom-balance').textContent = ${totalTokens} PHANTOM;
 
   // Check which tasks are completed and disable their buttons
   document.querySelectorAll('.task button').forEach((button, index) => {
-      const taskId = `task-${index}`;
+      const taskId = task-${index};
       if (localStorage.getItem(taskId)) {
           button.textContent = 'Completed';
           button.disabled = true;
@@ -77,25 +75,10 @@ document.getElementById('friends-tab').addEventListener('click', function () {
   setActiveTab('friends-tab');
 });
 
-
-// Function to generate a unique invite link
-function generateInviteLink() {
-  let userId = localStorage.getItem('userId');
-  
-  // Generate a new userId if it doesn't exist
-  if (!userId) {
-    userId = 'user_' + Math.random().toString(36).substr(2, 9);  // Unique user ID
-    localStorage.setItem('userId', userId);
-  }
-
-  // Generate unique invite URL using userId
-  const inviteLink = `https://t.me/PhantomTokenBot?invite=${userId}`;
-  return inviteLink;
-}
-
-// Copy invite link to clipboard and display "Copied"
+// Event listener for the 'Copy link' button
 document.getElementById('copy-link').addEventListener('click', function() {
-  const inviteLink = generateInviteLink();
+  // The URL you want to copy
+  const inviteLink = "https://t.me/PhantomTokenBot";
 
   // Create a temporary textarea element to hold the text to be copied
   const tempInput = document.createElement('textarea');
@@ -110,54 +93,6 @@ document.getElementById('copy-link').addEventListener('click', function() {
   button.textContent = 'Copied';
   button.classList.add('completed-btn'); // Optional styling change
 });
-
-// Function to reward inviter with 500 Phantom
-function rewardInviter(inviterId) {
-  const reward = 500;  // 500 Phantom reward
-  let totalTokens = parseInt(localStorage.getItem('phantomTokens') || '0');
-  totalTokens += reward;
-  localStorage.setItem('phantomTokens', totalTokens);
-
-  // Update the token balance in the UI
-  document.getElementById('phantom-balance').textContent = `${totalTokens} PHANTOM`;
-  
-  // You can also store this info in a backend if needed
-}
-
-// Check for invite parameter in the URL
-function checkForInvite() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const inviterId = urlParams.get('invite');
-  
-  if (inviterId) {
-    // Store inviterId in localStorage
-    localStorage.setItem('inviterId', inviterId);
-    
-    // Reward the inviter when the user joins
-    rewardInviter(inviterId);
-  }
-}
-
-// Call this function when the app loads
-window.addEventListener('load', function () {
-  checkForInvite();  // Check if the user joined via an invite link
-  loadUserData();    // Load the user's existing data
-});
-
-
-  // Create a temporary textarea element to hold the text to be copied
-  const tempInput = document.createElement('textarea');
-  tempInput.value = inviteLink;
-  document.body.appendChild(tempInput);
-  tempInput.select();
-  document.execCommand('copy');
-  document.body.removeChild(tempInput);
-
-  // Change button text to 'Copied' after copying
-  const button = document.getElementById('copy-link');
-  button.textContent = 'Copied';
-  button.classList.add('completed-btn'); // Optional styling change
-
 
 
 // Function to show specific screen
@@ -194,7 +129,7 @@ document.getElementById('connect-wallet').addEventListener('click', function () 
 
     // Reset completed tasks
     document.querySelectorAll('.task button').forEach((button, index) => {
-      const taskId = `task-${index}`;
+      const taskId = task-${index};
       localStorage.removeItem(taskId); // Remove task completion from localStorage
       button.textContent = 'Start'; // Change button text back to Start
       button.disabled = false; // Enable the button again
@@ -204,4 +139,3 @@ document.getElementById('connect-wallet').addEventListener('click', function () 
     this.textContent = 'Connect'; // Change back to Connect
   }
 });
-
