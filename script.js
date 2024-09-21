@@ -113,9 +113,30 @@ function setActiveTab(tabId) {
   document.getElementById(tabId).classList.add('active');
 }
 
+// Dummy variable to track connection status
+let isConnected = false;
 
+// Connect/Disconnect wallet button functionality
+document.getElementById('connect-wallet').addEventListener('click', function () {
+  if (!isConnected) {
+    // Handle wallet connection logic here
+    isConnected = true;
+    this.textContent = 'Disconnect'; // Change to Disconnect
+  } else {
+    // Reset user data
+    localStorage.removeItem('phantomTokens'); // Reset balance
+    document.getElementById('phantom-balance').textContent = '0 PHANTOM'; // Update UI
 
-  
+    // Reset completed tasks
+    document.querySelectorAll('.task button').forEach((button, index) => {
+      const taskId = `task-${index}`;
+      localStorage.removeItem(taskId); // Remove task completion from localStorage
+      button.textContent = 'Start'; // Change button text back to Start
+      button.disabled = false; // Enable the button again
+    });
 
+    isConnected = false;
+    this.textContent = 'Connect'; // Change back to Connect
+  }
 });
 
