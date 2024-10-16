@@ -3,7 +3,8 @@ const taskUrls = [
   'https://www.instagram.com/umarfarouqsaid/',  // URL for "Make a TON transaction"
   'https://t.me/PhantomTokenCommunity',  // URL for "Join Telegram community"
   'https://x.com/PhantomTokenBot',  // URL for "Follow us on X"
-  'https://youtube.com/@phantomtokenbot?si=5IN6jmwdHFII_Gbw',  // URL for "Subscribe YouTube"
+  'https://youtube.com/@phantomtokenbot?si=5IN6jmwdHFII_Gbw', // URL for "Subscribe YouTube"
+  'https://x.com/muhammad3369_?s=21',
 ];
 
 
