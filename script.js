@@ -1,18 +1,44 @@
+const taskUrls = [
+  // Existing tasks
+  'https://www.instagram.com/umarfarouqsaid/',
+  'https://t.me/PhantomTokenCommunity',
+  'https://x.com/PhantomTokenBot',
+  'https://youtube.com/@phantomtokenbot?si=5IN6jmwdHFII_Gbw',
+  'https://api.lootlabs.gg/link",
+];
+
+// Function to create a monetized link using Lootslab API
+async function createLootslabLink() {
+  try {
+    const response = await fetch('https://api.lootlabs.gg/link', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer eb8eb8eef9ecfaada63717eb11d30a1eea67199c4e452be0e51511e0b44c55b9',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        title: 'Lootslab Monetized Task',
+        destination: 'https://lootslab.gg', // Replace with the specific URL if needed
+        tier: 'basic' // Adjust tier as needed
+      })
+    });
+    const data = await response.json();
+    return data.shortUrl; // Returns the generated Lootslab link
+  } catch (error) {
+    console.error('Error creating Lootslab link:', error);
+  }
+}
+
+// Call createLootslabLink when loading tasks or completing the task
+document.querySelector('.task button').addEventListener('click', async function () {
+  const lootslabUrl = await createLootslabLink();
+  if (lootslabUrl) {
+    window.open(lootslabUrl, '_blank'); // Open the monetized link in a new tab
+  }
+  completeTask(button, 'lootslab-task');
+});
 // List of task URLs for each task
 
-const taskUrls = [
-
-  'https://www.instagram.com/umarfarouqsaid/',  // URL for "Make a TON transaction"
-
-  'https://t.me/PhantomTokenCommunity',  // URL for "Join Telegram community"
-
-  'https://x.com/PhantomTokenBot',  // URL for "Follow us on X"
-
-  'https://youtube.com/@phantomtokenbot?si=5IN6jmwdHFII_Gbw', // URL for "Subscribe YouTube"
-
-  'https://x.com/muhammad3369_?s=21',
-
-];
 
 
 
