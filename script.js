@@ -4,6 +4,7 @@ const taskUrls = [
   'https://t.me/PhantomTokenCommunity',  // URL for "Join Telegram community"
   'https://x.com/PhantomTokenBot',  // URL for "Follow us on X"
   'https://youtube.com/@phantomtokenbot?si=5IN6jmwdHFII_Gbw',  // URL for "Subscribe YouTube"
+  'https://lootdest.org/s?bb6749c9',
 ];
 
 
